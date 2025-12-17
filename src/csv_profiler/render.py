@@ -1,12 +1,11 @@
 import json
-from pathlib import Path
 
 def generate_json_report(report: dict) -> str:
-    """Generate JSON report string (Day 4 Ex 3)."""
+    """Generate JSON report string."""
     return json.dumps(report, indent=2, ensure_ascii=False)
 
 def generate_markdown_report(report: dict) -> str:
-    """Generate Markdown report string (Day 4 Ex 3)."""
+    """Generate Markdown report string."""
     lines = []
     lines.append("# CSV Profiling Report")
     lines.append("## Summary")
@@ -33,16 +32,3 @@ def generate_markdown_report(report: dict) -> str:
         lines.append(f"| {col_name} | {ctype} | {missing} | {details} |")
 
     return "\n".join(lines)
-
-
-def write_json(report: dict, path: str) -> None:
-    text = generate_json_report(report)
-    file_path = Path(path)
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    file_path.write_text(text, encoding="utf-8")
-
-def write_markdown(report: dict, path: str) -> None:
-    text = generate_markdown_report(report)
-    file_path = Path(path)
-    file_path.parent.mkdir(parents=True, exist_ok=True)
-    file_path.write_text(text, encoding="utf-8")

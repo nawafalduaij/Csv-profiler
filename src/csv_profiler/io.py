@@ -13,3 +13,14 @@ def parse_csv_string(csv_text: str) -> list[dict[str, str]]:
     
     reader = DictReader(StringIO(csv_text))
     return list(reader)
+
+
+def write_json(text: str, path: str) -> None:
+    file_path = Path(path)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    file_path.write_text(text, encoding="utf-8")
+
+def write_markdown(text: str, path: str) -> None:
+    file_path = Path(path)
+    file_path.parent.mkdir(parents=True, exist_ok=True)
+    file_path.write_text(text, encoding="utf-8")

@@ -35,5 +35,5 @@ dev = [
 csv-profiler = "csv_profiler.cli:app"
 
 [tool.setuptools.packages.find]
-where = ["."]
+where = ["src"]
 include = ["csv_profiler*"]
